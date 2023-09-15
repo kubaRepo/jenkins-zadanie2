@@ -10,7 +10,7 @@ pipeline {
 		stage('Dont execute') {
 			when {
 				not {
-					changelog ".*[ci skip].*"
+					changelog ".*^\\[ci skip\\].*"
 				}
 			}
 			steps {
