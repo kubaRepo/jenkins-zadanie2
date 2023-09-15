@@ -8,8 +8,10 @@ pipeline {
 
     stages {
 		stage('Don't execute') {
-			when {
-				changelog ".*ci skip.*"
+			steps {
+				when {
+					changelog ".*ci skip.*"
+				}
 			}
 		}
         stage('Clean') {
