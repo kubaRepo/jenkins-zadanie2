@@ -7,6 +7,11 @@ pipeline {
     }
 
     stages {
+		stage('Don't execute') {
+			when {
+				changelog ".*ci skip.*"
+			}
+		}
         stage('Clean') {
             steps {
                 cleanWs()
