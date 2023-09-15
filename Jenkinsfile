@@ -18,16 +18,31 @@ pipeline {
 			}
 		}
         stage('Clean') {
+			when {
+				not {
+					changelog ".*^\\[ci skip\\].*"
+				}
+			}
             steps {
                 cleanWs()
             }
         }
         stage('Checkout') {
+			when {
+				not {
+					changelog ".*^\\[ci skip\\].*"
+				}
+			}
             steps {
                 checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kubaRepo/szkolenie-cicd-jenkins-gitlab-example.git']])
             }
         }
         stage('Build') {
+			when {
+				not {
+					changelog ".*^\\[ci skip\\].*"
+				}
+			}
             steps {
                 // Get some code from a GitHub repository
                 // git 'https://github.com/spring-projects/spring-petclinic.git'
