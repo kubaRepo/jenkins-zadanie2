@@ -6,7 +6,7 @@ pipeline {
         maven "maven-3"
     }
 	triggers {
-        cron('1 * * * *')
+        cron('H/1 * * * *')
     }
     stages {
 		stage('Dont execute') {
