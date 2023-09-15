@@ -9,7 +9,9 @@ pipeline {
     stages {
 		stage('Dont execute') {
 			when {
-				changelog ".*ci skip.*"
+				not {
+					changelog ".*[ci skip].*"
+				}
 			}
 			steps {
 				echo 'It shouldnt execute!'
@@ -53,3 +55,4 @@ pipeline {
         }
     }
 }
+
