@@ -8,10 +8,11 @@ pipeline {
 
     stages {
 		stage('Dont execute') {
+			when {
+				changelog ".*ci skip.*"
+			}
 			steps {
-				when {
-					changelog ".*ci skip.*"
-				}
+				echo 'It shouldnt execute!'
 			}
 		}
         stage('Clean') {
