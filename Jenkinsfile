@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-		stage('Don't execute') {
+		stage('Dont execute') {
 			steps {
 				when {
 					changelog ".*ci skip.*"
